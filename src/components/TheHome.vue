@@ -24,7 +24,7 @@
 
 
     <div class="pt-14">
-      <img class="w-48" src="../assets/list.svg">
+      <img class="w-48 pl-4" src="../assets/list.svg">
     </div>
     <div class="pb-4 text-center">
       <p class="text-white">Welcome to my</p>
