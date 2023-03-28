@@ -45,8 +45,8 @@ watch(items, newItem => {
          <button class=" p-2 rounded-full font-semibold w-36 tracking-wide dark:tex-green-200">****</button>
        </div>
   </div>
-    <div class="flex-wrap max-w-md">
-      <img class="rotate-12" src="../assets/3d.png"/>
+    <div class="flex-wrap max-w-md md:items-center md:justify-center">
+      <img class="rotate-12 " src="../assets/3d.png"/>
     </div>
   </section>
   
@@ -65,14 +65,14 @@ watch(items, newItem => {
         </div>
       </div>
     </form>
-    <ul class="p-4 m-4 gap-2 ml-6 mr-6">
+    <ul class="p-4 m-4 ml-6 mr-6">
     <li 
       v-for="({id, label}, index) in items" 
       :key="id" 
-      class="p-2 m-auto border border-4 bg-green-500 text-white font-medium divide-y-2 place-items-start w-full">
-       <font-awesome-icon icon="fa-regular fa-circle-check" class="mr-2 text-blue-500" />
+      class="p-2 m-auto divide-1 divide-white rounded bg-green-500 text-white font-medium divide-y-2 place-items-start w-full">
+       <font-awesome-icon :icon="['fas', 'circle-check']" class="pr-4"/>
       {{label}}
-      <button @click="removeItem"><font-awesome-icon :icon="['fas', 'trash']" />Delete</button>
+      <button @click="removeItem"><font-awesome-icon :icon="['fas', 'trash-can']" class="pl-4" /></button>
     </li>
   </ul>
     <div class="text-center ml-6 mr-6">
@@ -80,5 +80,5 @@ watch(items, newItem => {
     </div>
     
   </header>
-
+  
 </template>
