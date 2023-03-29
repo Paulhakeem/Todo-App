@@ -55,13 +55,13 @@ watch(items, newItem => {
   <header>
     <form @submit.prevent="addItem" class="pt-16 justify-center items-center text-center ml-6 mr-6">
       <div class="text-center p-2 m-auto">
-        <h2 class="text-green-500 uppercase text-bold text-lg tracking-wide subpixel-antialiased leading-normal">Prepared your list</h2>
-        <p class="font-medium tracking-wide subpixel-antialiased leading-relaxed ">Make your todolist below</p>
+        <h2 class="text-green-500 uppercase text-bold text-lg tracking-wide subpixel-antialiased leading-normal">Prepare your list</h2>
+        <p class="font-medium tracking-wide subpixel-antialiased leading-relaxed ">Make your own todolist below</p>
       </div>
       <div class="flex pt-4">
         <input v-model="newItem" type="text" class="outline-green-500 w-full border border-1 rounded-md border-gray-300 pl-4 text-gray-400" placeholder="Add your item here..." required>
         <div class="ml-4">
-          <button class="bg-green-400 text-medium appercase text-white rounded-md tracking-wide leading-relaxed">ADD ITEM</button>
+          <button :disabale="items === 0" class="bg-green-400 text-medium appercase text-white rounded-md tracking-wide leading-relaxed">ADD ITEM</button>
         </div>
       </div>
     </form>
@@ -69,7 +69,7 @@ watch(items, newItem => {
     <li 
       v-for="({id, label}, index) in items" 
       :key="id" 
-      class="p-2 m-auto divide-1 divide-white rounded bg-green-500 text-white font-medium divide-y-2 place-items-start w-full">
+      class="p-2 m-auto border border-x-1 boder-x-white rounded bg-green-500 text-white font-medium divide-y-2 place-items-start w-full">
        <font-awesome-icon :icon="['fas', 'circle-check']" class="pr-4"/>
       {{label}}
       <button @click="removeItem"><font-awesome-icon :icon="['fas', 'trash-can']" class="pl-4" /></button>
