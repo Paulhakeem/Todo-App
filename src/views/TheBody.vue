@@ -65,7 +65,8 @@ watch(items, newItem => {
         </div>
       </div>
     </form>
-    <ul class="p-4 m-4 ml-6 mr-6">
+  
+    <transition-group tag="ul" name="list" class="p-4 m-4 ml-6 mr-6">
     <li 
       v-for="({id, label}, index) in items" 
       :key="id" 
@@ -74,11 +75,58 @@ watch(items, newItem => {
       {{label}}
       <button @click="removeItem"><font-awesome-icon :icon="['fas', 'trash-can']" class="pl-4" /></button>
     </li>
-  </ul>
+  </transition-group>
+    
     <div class="text-center ml-6 mr-6">
        <p v-if="!items.length" class="italic font-medium text-green-500 tracking-wide">You have empty List!</p>
     </div>
-    
+  
   </header>
   
 </template>
+
+<style>
+  .list-enter-from {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  .list-enter-to {
+    opacity: 1;
+    transform: scale(1);
+  }
+  .list-enter-active{
+    transition: all 0.5s ease;
+  }
+  .list-leave-from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  .list-leave-to {
+    opacity: ;
+    transform: scale(0.6);
+  }
+  .list-leave-active{
+    transition: all 0.5s ease;
+    position: absolute;
+  }
+  .list.move {
+    transition: all 0.4 ease;
+  }
+  .switch-enter-from,
+  .switch-leave-to {
+    opacity: 0;
+    transform: translateY(20px)
+  }
+   .switch-enter-to,
+  .switch-leave-from {
+    opacity: 1;
+    transform: translateY(0)
+  }
+  .switch-enter-active{
+    transition: all 0.4s ease;
+  }
+  .switch-leave-active{
+    transition: all 0.4s ease;
+  }
+  
+</style>
