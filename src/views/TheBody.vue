@@ -1,6 +1,7 @@
  <script setup>
 import { ref, watch, onMounted } from "vue"
-
+import { onBeforeRouteLeave } from 'vue-router'
+   
 const items = ref([])
    
 const newItem = ref("")
@@ -29,12 +30,25 @@ watch(items, newItem => {
     items.value = JSON.parse(localStorage.getItem('items')) || []
   })
 
+   onBeforeRouteLeave((to, from) => {
+      const answer = window.confirm(
+        'Do you really want to leave? confirm your Todo list again!'
+      )
+      
+      if (!answer) return false
+    })
+
    
 </script>
 
 <template>
 
   <section class="grid md:grid-cols-2 my-6 gap-2 pt-20 ml-6 mr-6 md:grid-cols-2 bg-blend-darken space-x-48 items-center">
+
+<div class="">
+  <button class="bg-green-400 text-medium appercase text-white rounded-md tracking-wide leading-relaxed">back</button>
+</div> 
+    
   <div class="p-3 pt-36">
     <h2 class="tracking-wide text-4xl font-bold px-3 text-green-400 text-italic tracking-wide prose-slate uppercase dark:tex-green-200">welcome to my todo <span>app</span></h2>
 
