@@ -76,11 +76,10 @@ watch(items, newItem => {
       <button @click="removeItem"><font-awesome-icon :icon="['fas', 'trash-can']" class="pl-4" /></button>
     </li>
   </transition-group>
-    
     <div class="text-center ml-6 mr-6">
        <p v-if="!items.length" class="italic font-medium text-green-500 tracking-wide">You have empty List!</p>
     </div>
-  
+   
   </header>
   
 </template>
